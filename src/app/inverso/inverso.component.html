@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12 py-4">
+        <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Ingrese numeros</label>
+                <input type="number" class="form-control" formControlName="numeros">
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" (click)="agrega()">Agregar número</button>
+                <button type="submit" class="btn btn-primary">Invertir</button>
+            </div>
+
+            <div class="card my-4" *ngIf="numeros.length > 0">
+                <div class="card-body">
+                    <p>Numeros agregados</p>
+                    <input class="form-control" type="text" [placeholder]="numeros" readonly formControlName="valnumeros">
+                </div>
+            </div>
+
+            <div class="card my-4" *ngIf="invertidos.length > 0">
+                <div class="card-body">
+                    <p>Numeros invertidos</p>
+                    <input class="form-control" type="text" [placeholder]="numeros" readonly formControlName="valinvertidos">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

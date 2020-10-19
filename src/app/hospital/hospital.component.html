@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12 py-4">
+        <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+            </div>
+            <div class="form-group">
+                <label>Nivel</label>
+                <select class="form-control" formControlName="nivelField">
+                <option value="">Selecciona urgencia</option>
+                <option *ngFor="let item of niveles" [ngValue]="item">{{item}}</option> 
+             </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+    </div>
+</div>
+<div class="row" *ngIf="registros.length > 0">
+    <div class="col-md-12 py-4">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Hora de registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of registros; let i=index ">
+                    <th scope="row">{{i}}</th>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.nivel}}</td>
+                    <td>{{item.myDate | date:'medium' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
